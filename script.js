@@ -21,7 +21,7 @@ canvas.onmousemove = function(a){
         var newPoint = {'x': x, 'y': y}
         drawCircle(x, y, 2)
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
+        lastPoint = newPoint //时刻更新终点
     }
 }
 

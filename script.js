@@ -1,61 +1,11 @@
 var canvas = document.getElementById('main')
-
-fullScreen()
-
-//获取页面宽高
-function fullScreen() {
-    var pageWidth = document.documentElement.clientWidth
-    var pageHeight = document.documentElement.clientHeight
-
-    canvas.width = pageWidth
-    canvas.height = pageHeight
-}
-
-window.onresize = function () {
-    fullScreen()
-}
-
 var context = canvas.getContext('2d')
 
-var using = false
-var lastPoint = { x: undefined, y: undefined }
+autoSetCanvasSize(canvas)
+listenToMouse(canvas)
 
-//当鼠标按下
-canvas.onmousedown = function (a) {
 
-    var x = a.clientX
-    var y = a.clientY
-    if (eraserEnable) {
-        using = true
-        context.clearRect(x-5, y-5, 10, 10)
-    } else {
-        using = true
-        lastPoint = { 'x': x, 'y': y }
-    }
 
-}
-
-//鼠标移动
-canvas.onmousemove = function (a) {
-    var x = a.clientX
-    var y = a.clientY
-    if (eraserEnable) {
-        if (using) {
-            context.clearRect(x-5, y-5, 10, 10)
-        }
-    } else {
-        if (using) {
-            var newPoint = { 'x': x, 'y': y }
-            drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-            lastPoint = newPoint //时刻更新终点
-        }
-    }
-}
-
-//鼠标抬起
-canvas.onmouseup = function (a) {
-    using = false
-}
 
 
 //画点函数
@@ -80,5 +30,71 @@ function drawLine(x1, y1, x2, y2) {
 //function for eraser
 var eraserEnable = false
 eraser.onclick = function () {
-    eraserEnable = !eraserEnable
+    eraserEnable = true
+    action.className = 'actions x'
+}
+
+brush.onclick = function(){
+    eraserEnable = false
+    action.className = 'actions'
+}
+
+
+function autoSetCanvasSize(canvas) {
+    fullScreen()
+
+    //获取页面宽高
+    function fullScreen() {
+        var pageWidth = document.documentElement.clientWidth
+        var pageHeight = document.documentElement.clientHeight
+
+        canvas.width = pageWidth
+        canvas.height = pageHeight
+    }
+
+    window.onresize = function () {
+        fullScreen()
+    }
+}
+
+function listenToMouse(canvas) {
+
+    var using = false
+    var lastPoint = { x: undefined, y: undefined }
+
+    //当鼠标按下
+    canvas.onmousedown = function (a) {
+
+        var x = a.clientX
+        var y = a.clientY
+        using = true
+        if (eraserEnable) {
+            context.clearRect(x - 5, y - 5, 10, 10)
+        } else {
+            lastPoint = { 'x': x, 'y': y }
+        }
+
+    }
+
+    //鼠标移动
+    canvas.onmousemove = function (a) {
+        var x = a.clientX
+        var y = a.clientY
+        if (!using) {
+            return
+        }
+        if (eraserEnable) {
+            context.clearRect(x - 5, y - 5, 10, 10)
+        }
+         else {
+        var newPoint = { 'x': x, 'y': y }
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        lastPoint = newPoint //时刻更新终点
+    }
+}
+
+//鼠标抬起
+canvas.onmouseup = function (a) {
+    using = false
+}
 }

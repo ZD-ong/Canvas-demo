@@ -6,13 +6,13 @@
 ul,ol {
     list-style: none;
 }
-/* 禁用滚动 */
-body {
-    overflow: hidden;
-}
+
 #main {
     background: #cfc0a2;
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .actions {
     position: fixed;

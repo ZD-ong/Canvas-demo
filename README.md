@@ -1,7 +1,7 @@
 # Canvas-demo
 
 ## 分析项目
-### web端
+### pc端
 1. 按下鼠标开始
 ```
 canvas.onmousedown = function(){}

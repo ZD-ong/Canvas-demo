@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+ul,ol {
+    list-style: none;
+}
 #main {
     background: #cfc0a2;
     display: block;
@@ -11,13 +14,40 @@
     position: fixed;
     top: 0;
     left: 0;
+    padding: 20px;
 }
-.action #brush {
-    display: none;
+
+.actions .iconfont {
+    font-size: 1.5em;
+    font-size: 1.5em;
+    transition: all 0.2s;
+    margin: 0 10px;
 }
-.action.x #brush {
-    display: inline-block;
+.actions span.active{
+    font-size: 1.2em;
+    color: #e75853;
 }
-.action.x #eraser {
-    display: none;
+.colors {
+    position: fixed;
+    top: 60px;
+    left: 30px;
+}
+.colors>li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    margin: 10px 0;
+}
+.colors>li.green {
+    background-color: green;
+}
+.colors>li.blue {
+    background-color: blue;
+}
+.colors>li.yellow {
+    background-color: yellow;
+}
+.colors>li.active {
+    box-shadow: 0 0 5px rgba(0,0,0,8);
 }

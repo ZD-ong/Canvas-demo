@@ -12,7 +12,6 @@ listenToUser(canvas)
 //画点函数
 function drawCircle(x, y, radius) {
     context.beginPath()
-    context.fillStyle = 'black'
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
 }
@@ -20,7 +19,6 @@ function drawCircle(x, y, radius) {
 //画线函数
 function drawLine(x1, y1, x2, y2) {
     context.beginPath()
-    context.strokeStyle = 'black'
     context.moveTo(x1, y1) //起点
     context.lineWidth = 5
     context.lineTo(x2, y2) //终点
@@ -30,16 +28,33 @@ function drawLine(x1, y1, x2, y2) {
 
 //function for eraser
 var eraserEnable = false
-eraser.onclick = function () {
-    eraserEnable = true
-    actions.className = 'actions x'
-}
-
 brush.onclick = function(){
     eraserEnable = false
-    actions.className = 'actions'
+    brush.classList.add('active')
+    eraser.classList.remove('active')
+}
+eraser.onclick = function(){
+    eraserEnable = true
+    eraser.classList.add('active')
+    brush.classList.remove('active')
 }
 
+green.onclick = function(){
+    context.strokeStyle = 'green'
+    context.fillStyle = 'green'
+    green.classList.add('active').siblings().remove('active')
+    
+}
+blue.onclick = function () {
+    context.strokeStyle = 'blue'
+    context.fillStyle = 'blue'
+    blue.classList.add('active').siblings().remove('active')
+}
+yellow.onclick = function () {
+    context.strokeStyle = 'yellow'
+    context.fillStyle = 'yellow'
+    yellow.classList.add('active').siblings().remove('active')
+}
 
 function autoSetCanvasSize(canvas) {
     fullScreen()

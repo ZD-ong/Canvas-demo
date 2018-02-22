@@ -26,16 +26,23 @@ function drawLine(x1, y1, x2, y2) {
     context.closePath()
 }
 
-//function for eraser
 var eraserEnable = false
 brush.onclick = function(){
     eraserEnable = false
     brush.classList.add('active')
     eraser.classList.remove('active')
+    pen.classList.remove('active')
 }
 eraser.onclick = function(){
     eraserEnable = true
     eraser.classList.add('active')
+    brush.classList.remove('active')
+    pen.classList.remove('active')
+}
+pen.onclick = function () {
+    eraserEnable = false
+    pen.classList.add('active')
+    eraser.classList.remove('active')
     brush.classList.remove('active')
 }
 

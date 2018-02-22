@@ -1,4 +1,5 @@
 var canvas = document.getElementById('main')
+//获取cavas上下文
 var context = canvas.getContext('2d')
 
 autoSetCanvasSize(canvas)

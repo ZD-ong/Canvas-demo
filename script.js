@@ -32,12 +32,12 @@ function drawLine(x1, y1, x2, y2) {
 var eraserEnable = false
 eraser.onclick = function () {
     eraserEnable = true
-    action.className = 'actions x'
+    actions.className = 'actions x'
 }
 
 brush.onclick = function(){
     eraserEnable = false
-    action.className = 'actions'
+    actions.className = 'actions'
 }
 
 

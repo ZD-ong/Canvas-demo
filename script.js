@@ -39,15 +39,26 @@ eraser.onclick = function(){
     brush.classList.remove('active')
     pen.classList.remove('active')
 }
-pen.onclick = function () {
+pen.onclick = function(){
     eraserEnable = false
     pen.classList.add('active')
     eraser.classList.remove('active')
     brush.classList.remove('active')
 }
+clear.onclick = function(){
+    context.clearRect(0, 0, canvas.width, canvas.height)
+}
+save.onclick = function(){
+    var url = canvas.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = '我的画布'
+    a.click()
+}
 
-black.onclick = function () {
-    context.strokeStyle = 'balck'
+black.onclick = function(){
+    context.strokeStyle = 'black'
     context.fillStyle = 'black'
     black.classList.add('active')
     green.classList.remove('active')

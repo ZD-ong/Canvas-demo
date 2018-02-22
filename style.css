@@ -6,6 +6,9 @@
 ul,ol {
     list-style: none;
 }
+body {
+    overflow: hidden;
+}
 #main {
     background: #cfc0a2;
     display: block;
@@ -38,6 +41,7 @@ ul,ol {
     border-radius: 50%;
     box-shadow: 0 0 3px rgba(0,0,0,0.3);
     margin: 10px 0;
+    transition: all 0.3s;
 }
 .colors>li.black {
     background-color: black;
@@ -53,4 +57,5 @@ ul,ol {
 }
 .colors>li.active {
     box-shadow: 0 0 5px rgba(0,0,0,8);
+    transform: scale(1.2);
 }

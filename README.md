@@ -1,6 +1,7 @@
 # Canvas-demo
 
 ## 分析项目
+### web端
 1. 按下鼠标开始
 ```
 canvas.onmousedown = function(){}
@@ -13,6 +14,17 @@ canvas.onmousemove = function(){}
 ```
 canvas.onmouseup = function(){}
 ```
+### 移动端
+1. 触屏开始
+```
+canvas.ontouchstart = function(){}
+```
+2. 滑动手指
+```
+canvas.ontouchmove = function(){}
+```
+3. 移开手指结束
+canvas.ontouchend = function(){}
 
 ## 所需API
 - 获取画布

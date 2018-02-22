@@ -39,21 +39,37 @@ eraser.onclick = function(){
     brush.classList.remove('active')
 }
 
+black.onclick = function () {
+    context.strokeStyle = 'balck'
+    context.fillStyle = 'black'
+    black.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+    yellow.classList.remove('active')
+}
 green.onclick = function(){
     context.strokeStyle = 'green'
     context.fillStyle = 'green'
-    green.classList.add('active').siblings().remove('active')
-    
+    green.classList.add('active')
+    blue.classList.remove('active')
+    yellow.classList.remove('active')
+    black.classList.remove('active')
 }
 blue.onclick = function () {
     context.strokeStyle = 'blue'
     context.fillStyle = 'blue'
-    blue.classList.add('active').siblings().remove('active')
+    blue.classList.add('active')
+    green.classList.remove('active')
+    yellow.classList.remove('active')
+    black.classList.remove('active')
 }
 yellow.onclick = function () {
     context.strokeStyle = 'yellow'
     context.fillStyle = 'yellow'
-    yellow.classList.add('active').siblings().remove('active')
+    yellow.classList.add('active')
+    blue.classList.remove('active')
+    green.classList.remove('active')
+    black.classList.remove('active')
 }
 
 function autoSetCanvasSize(canvas) {

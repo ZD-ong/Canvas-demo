@@ -39,6 +39,9 @@ ul,ol {
     box-shadow: 0 0 3px rgba(0,0,0,0.3);
     margin: 10px 0;
 }
+.colors>li.black {
+    background-color: black;
+}
 .colors>li.green {
     background-color: green;
 }

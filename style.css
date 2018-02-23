@@ -8,7 +8,7 @@ ul,ol {
 }
 
 #main {
-    background: #cfc0a2;
+    background: #d9ccba;
     display: block;
     position: fixed;
     top: 0;
@@ -21,15 +21,17 @@ ul,ol {
     padding: 20px;
 }
 
-.actions .iconfont {
-    font-size: 1.5em;
-    font-size: 1.5em;
-    transition: all 0.2s;
+
+.actions svg {
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.3s;
     margin: 0 10px;
 }
 
-.actions span.active{
-    font-size: 1.5em;
+.actions svg.active{
+    transform: scale(1.2);
+    fill: #fc4e42;
 }
 .colors {
     position: fixed;
@@ -45,16 +47,17 @@ ul,ol {
     transition: all 0.3s;
 }
 .colors>li.black {
-    background-color: black;
+    background-color: #333333;
 }
 .colors>li.green {
-    background-color: green;
+    background-color: #fdcf46;
 }
 .colors>li.blue {
-    background-color: blue;
+    background-color: #fc4e42;
+    
 }
 .colors>li.yellow {
-    background-color: yellow;
+    background-color: #1173b9;
 }
 .colors>li.active {
     box-shadow: 0 0 5px rgba(0,0,0,8);

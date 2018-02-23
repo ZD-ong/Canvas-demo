@@ -1,6 +1,7 @@
 var canvas = document.getElementById('main')
 //获取cavas上下文
 var context = canvas.getContext('2d')
+var lineWidth = 5
 
 autoSetCanvasSize(canvas)
 listenToUser(canvas)
@@ -20,7 +21,7 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
     context.beginPath()
     context.moveTo(x1, y1) //起点
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2) //终点
     context.stroke()
     context.closePath()
@@ -29,6 +30,7 @@ function drawLine(x1, y1, x2, y2) {
 var eraserEnable = false
 brush.onclick = function(){
     eraserEnable = false
+    lineWidth = 8
     brush.classList.add('active')
     eraser.classList.remove('active')
     pen.classList.remove('active')
@@ -41,6 +43,7 @@ eraser.onclick = function(){
 }
 pen.onclick = function(){
     eraserEnable = false
+    lineWidth = 5
     pen.classList.add('active')
     eraser.classList.remove('active')
     brush.classList.remove('active')
@@ -58,32 +61,32 @@ save.onclick = function(){
 }
 
 black.onclick = function(){
-    context.strokeStyle = 'black'
-    context.fillStyle = 'black'
+    context.strokeStyle = '#333333'
+    context.fillStyle = '#333333'
     black.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
     yellow.classList.remove('active')
 }
 green.onclick = function(){
-    context.strokeStyle = 'green'
-    context.fillStyle = 'green'
+    context.strokeStyle = '#fdcf46'
+    context.fillStyle = '#fdcf46'
     green.classList.add('active')
     blue.classList.remove('active')
     yellow.classList.remove('active')
     black.classList.remove('active')
 }
 blue.onclick = function () {
-    context.strokeStyle = 'blue'
-    context.fillStyle = 'blue'
+    context.strokeStyle = '#fc4e42'
+    context.fillStyle = '#fc4e42'
     blue.classList.add('active')
     green.classList.remove('active')
     yellow.classList.remove('active')
     black.classList.remove('active')
 }
 yellow.onclick = function () {
-    context.strokeStyle = 'yellow'
-    context.fillStyle = 'yellow'
+    context.strokeStyle = '#1173b9'
+    context.fillStyle = '#1173b9'
     yellow.classList.add('active')
     blue.classList.remove('active')
     green.classList.remove('active')
